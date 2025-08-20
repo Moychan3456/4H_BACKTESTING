@@ -1,0 +1,33 @@
+==================================
+BACKTESTING STATS (RR = 1:1.5, Risk = $500.0)
+==================================
+
+Start                         2020-01-01 03:30:00+05:30
+End                           2025-08-19 02:30:00+05:30
+Period                               1463 days 12:00:00
+Start Value                                    100000.0
+End Value                                 182486.579107
+Total Return [%]                              82.486579
+Benchmark Return [%]                         -16.497255
+Max Gross Exposure [%]                       1077.68158
+Total Fees Paid                            60180.145811
+Max Drawdown [%]                              32.564578
+Max Drawdown Duration                 312 days 08:00:00
+Total Trades                                        210
+Total Closed Trades                                 210
+Total Open Trades                                     0
+Open Trade PnL                                      0.0
+Win Rate [%]                                  50.952381
+Best Trade [%]                                 0.818595
+Worst Trade [%]                               -1.183918
+Avg Winning Trade [%]                          0.146374
+Avg Losing Trade [%]                          -0.150218
+Avg Winning Trade Duration              0 days 04:00:00
+Avg Losing Trade Duration     0 days 04:04:39.611650485
+Profit Factor                                   1.47037
+Expectancy                                   392.793234
+Sharpe Ratio                                   0.658251
+Calmar Ratio                                   0.497025
+Omega Ratio                                    1.768369
+Sortino Ratio                                  1.212578
+dtype: object
