@@ -14,7 +14,7 @@ timeframe = "4H"
 start_date = datetime(2020, 1, 1)
 end_date = datetime(2025, 8, 19)
 last_candles = 100  # number of candles to plot
-RR_RATIO = 1.5      # Risk-to-Reward ratio (e.g., 2.0 for 1:2)
+RR_RATIO = 2      # Risk-to-Reward ratio (e.g., 2.0 for 1:2)
 CAPITAL = 100000.0   # Initial capital for the backtest
 RISK_PER_TRADE = 500.0  # Fixed risk per trade (0.5% of 100k)
 
@@ -44,7 +44,8 @@ for key, group in df.groupby("GroupKey"):
 
     resampled_group = group_ist.resample(
         rule=timeframe.lower(),
-        label="right",
+        label="left",
+        closed="left",
         origin=origin
     ).agg({
         'Open': 'first',
@@ -98,7 +99,7 @@ for i in range(len(df_resampled) - 4):
             entry_price = df_resampled.iloc[i + 3]['Close']
             
             # --- MODIFIED SL CONDITION ---
-            sl_price = df_resampled.iloc[i+2]['Low']
+            sl_price = df_resampled.iloc[i+2]['High']
             
             risk = sl_price - entry_price
             tp_price = entry_price - (risk * RR_RATIO)
@@ -263,5 +264,6 @@ if trade_setups and trade_setups[-1]['entry_time'] in df_last.index:
 
 # Connect the zone shading function to the plot's draw event
 fig.axes[0].figure.canvas.mpl_connect('draw_event', lambda event: add_zone(event.canvas.figure.axes[0]))
+
 
 mpf.show()
