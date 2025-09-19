@@ -1,107 +1,98 @@
-# Forex Backtesting & Strategy Research 📊
+# 📊 Multi-Strategy Quant Backtester
 
-This repository contains my **forex trading backtesting framework** built in Python.  
-It uses real historical data from Dukascopy, applies **candlestick pattern detection**, and backtests strategies with **vectorbt**.
+This project implements a **multi-strategy backtesting framework** for FX trading on the **4H timeframe**.
+It combines three independent price-action strategies with dynamic risk management and evaluates them through professional performance metrics, risk analysis, and Monte Carlo simulations.
 
-At the current stage, only **one bearish zone-based 4H strategy** is implemented.  
-But this project is designed to scale — more strategies (weekly, daily, 4H variations, etc.) will be added over time.
-
----
-
-## 🚀 Features
-
-- ✅ Fetches tick-accurate forex data from **Dukascopy**
-- ✅ Resamples raw data into DST-aware OHLC candles (IST/NY session handling)
-- ✅ Detects **bearish candlestick zones**
-- ✅ Automatically sets **Entry / SL / TP** with Risk:Reward logic
-- ✅ Backtests trades with **vectorbt**
-- ✅ Position sizing based on **fixed risk per trade**
-- ✅ Plots candles with **zones, entries, exits, and trade highlights**
+🚀 **Goal:** Demonstrate quantitative research, portfolio thinking, and risk-adjusted evaluation of trading strategies.
 
 ---
 
-## 📊 Current Strategy (Implemented)
+## 🔑 Features
 
-**Bearish Zone Rejection – 4H Timeframe**
-
-1. Detects a bearish candle that forms a "zone" (open → low range).  
-2. Confirms next 3 candles stay inside the zone.  
-3. Entry = close of 4th confirming candle  
-4. Stop Loss = low of 3rd candle  
-5. Take Profit = based on Risk:Reward ratio (default **1:1.5**)  
-6. Position size = automatically calculated from fixed risk (default **$500 risk per trade**)  
-
----
-
-## 📈 Backtest Results
-
-Run from **2020-01-01 to 2025-08-19**  
-Initial Capital = **$100,000**  
-Risk = **$500/trade (0.5% of account)**  
-
-See [`output.txt`](output.txt) for full stats.
-
-Highlights:
-- ✅ **Total Return:** +82.48%  
-- ✅ **Win Rate:** ~51%  
-- ✅ **Profit Factor:** 1.47  
-- ✅ **Sharpe Ratio:** 0.65  
-- ⚠️ Max Drawdown: -32.56% (currently working on improvements)
+* Modular framework for multiple strategies
+* Dynamic position sizing (fixed fractional risk)
+* Trade log with entry/exit, stop-loss, target, and PnL
+* Performance metrics: **Sharpe, Sortino, Calmar, CAGR, Max Drawdown**
+* Equity curve & drawdown visualization
+* Monte Carlo simulation of equity paths
+* Correlation analysis between strategies
 
 ---
 
-## 🛠 Tech Stack
+## 📈 Results (GBP/CHF 4H)
 
-- **Python**
-- [vectorbt](https://github.com/polakowo/vectorbt) – fast backtesting
-- [dukascopy-python](https://github.com/Leo4815162342/dukascopy-python) – forex data
-- [mplfinance](https://github.com/matplotlib/mplfinance) – financial plotting
-- **pandas, numpy** – data processing
+### Combined Performance
 
----
-
-## 📌 Roadmap (Next Steps)
-
-- [ ] Add **Weekly timeframe** strategy  
-- [ ] Add **Daily timeframe** strategy  
-- [ ] Implement more 4H variations (trend continuation, breakouts)  
-- [ ] Compare performance across multiple currency pairs  
-- [ ] Build a **strategy selector** to combine multiple systems  
-- [ ] Export reports automatically in HTML/Notebook  
+* **Initial Capital:** \$100,000
+* **Final Capital:** \$130,425
+* **Total Trades:** 160
+* **Win Rate:** 54.4%
+* **Sharpe Ratio:** 1.14
+* **Sortino Ratio:** 1.14
+* **Calmar Ratio:** 1.93
+* **Max Drawdown:** -2.54%
+* **Max Consecutive Losses:** 6
 
 ---
 
-## ⚡ How to Run
+### 📊 Strategy-Level Metrics
 
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/yourusername/forex-backtester.git
-   cd forex-backtester
-   ```
-
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. Run the script:
-   ```bash
-   python backtest.py
-   ```
-
-4. View backtest output:
-   - Stats → `output.txt`
-   - Visuals → Matplotlib window
+| Metric           | Combined | S1     | S2     | S3     |
+| ---------------- | -------- | ------ | ------ | ------ |
+| Total Trades     | 160      | 95     | 29     | 36     |
+| Win Rate (%)     | 54.37%   | 53.68% | 44.83% | 63.89% |
+| Sharpe Ratio     | 1.14     | 0.54   | 0.39   | 1.04   |
+| Sortino Ratio    | 1.14     | 0.40   | 3.83   | 4.99   |
+| Calmar Ratio     | 1.93     | 0.44   | 0.55   | 2.88   |
+| Max Drawdown (%) | -2.54%   | -3.70% | -1.51% | -0.99% |
 
 ---
 
-## 📬 Contact
+## 📉 Visualizations
 
-If you’re a recruiter, quant researcher, or trader interested in this project — feel free to reach out!
+### Equity Curve & Drawdowns
 
-**Author:** Chinmoy S. Patir  
-**Email:** chinmoypatir@example.com  
-**LinkedIn:** [Chinmoy Patir](https://www.linkedin.com/in/chinmoy-patir-a24206286/)  
-**GitHub:** [Moychan3456](https://github.com/Moychan3456?tab=repositories)
+![Equity Curve](figures/equity_&_drawdown.png)
+
+### Monte Carlo Simulations
+
+![Monte Carlo](figures/monte_carlo.png)
 
 ---
+
+## 🔍 Key Insights
+
+* **Diversification Benefit:** Low correlation across strategies reduces risk.
+* **Robustness:** Monte Carlo confirms actual equity curve lies within the 5–95% percentile band.
+* **Stability:** Max drawdown of only -2.54% makes it capital efficient.
+* **Best Performer:** Strategy 3 had the strongest standalone performance (Sharpe 1.04, Sortino 4.99).
+
+---
+
+## ⚡ Next Steps
+
+* Extend framework to multi-currency FX portfolio.
+* Add volatility-scaling / Kelly position sizing.
+* Expand strategy library to include trend-following and mean-reversion models.
+
+---
+
+## 📂 Repo Structure
+
+```
+MultiStrategy_Backtester/
+│── README.md            # Research report (this file)
+│── backtester.py        # Framework (risk mgmt, performance analytics)
+│── strategy_example.py  # Dummy strategy (moving average crossover for demo)
+│── figures/
+│    ├── equity_&_drawdown.png
+│    ├── monte_carlo.png
+│    └── correlation_heatmap.png
+```
+
+---
+
+## 📌 Note
+
+This repo contains the **framework and sample strategies** only.
+The proprietary logic of the real strategies has been excluded for confidentiality, but the backtester architecture and analytics remain identical.
