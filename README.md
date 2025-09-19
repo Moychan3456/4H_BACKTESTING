@@ -1,98 +1,81 @@
-# 📊 Multi-Strategy Quant Backtester
+# 📊 4H Backtesting – Bearish Zone Pattern Strategy
 
-This project implements a **multi-strategy backtesting framework** for FX trading on the **4H timeframe**.
-It combines three independent price-action strategies with dynamic risk management and evaluates them through professional performance metrics, risk analysis, and Monte Carlo simulations.
-
-🚀 **Goal:** Demonstrate quantitative research, portfolio thinking, and risk-adjusted evaluation of trading strategies.
+A systematic backtest of a **bearish candlestick zone pattern** on the **4H timeframe** (USD/CHF, 2020–2025).  
+This project demonstrates how discretionary price-action ideas can be **translated into a quantifiable strategy**, complete with **risk management, position sizing, and statistical evaluation**.
 
 ---
 
-## 🔑 Features
+## 🔹 Executive Summary
 
-* Modular framework for multiple strategies
-* Dynamic position sizing (fixed fractional risk)
-* Trade log with entry/exit, stop-loss, target, and PnL
-* Performance metrics: **Sharpe, Sortino, Calmar, CAGR, Max Drawdown**
-* Equity curve & drawdown visualization
-* Monte Carlo simulation of equity paths
-* Correlation analysis between strategies
-
----
-
-## 📈 Results (GBP/CHF 4H)
-
-### Combined Performance
-
-* **Initial Capital:** \$100,000
-* **Final Capital:** \$130,425
-* **Total Trades:** 160
-* **Win Rate:** 54.4%
-* **Sharpe Ratio:** 1.14
-* **Sortino Ratio:** 1.14
-* **Calmar Ratio:** 1.93
-* **Max Drawdown:** -2.54%
-* **Max Consecutive Losses:** 6
+- **Instrument Tested:** USD/CHF  
+- **Timeframe:** 4H (2020–2025)  
+- **Initial Capital:** $100,000  
+- **Risk per Trade:** $500 (0.5%)  
+- **Risk-to-Reward:** 1:1.5  
+- **Final Portfolio Value:** $182,486  
+- **Total Return:** **+82.5%**  
+- **Benchmark Return:** -16.5%  
 
 ---
 
-### 📊 Strategy-Level Metrics
+## 📈 Performance Highlights
 
-| Metric           | Combined | S1     | S2     | S3     |
-| ---------------- | -------- | ------ | ------ | ------ |
-| Total Trades     | 160      | 95     | 29     | 36     |
-| Win Rate (%)     | 54.37%   | 53.68% | 44.83% | 63.89% |
-| Sharpe Ratio     | 1.14     | 0.54   | 0.39   | 1.04   |
-| Sortino Ratio    | 1.14     | 0.40   | 3.83   | 4.99   |
-| Calmar Ratio     | 1.93     | 0.44   | 0.55   | 2.88   |
-| Max Drawdown (%) | -2.54%   | -3.70% | -1.51% | -0.99% |
-
----
-
-## 📉 Visualizations
-
-### Equity Curve & Drawdowns
-
-![Equity Curve](equity_&_drawdown.png)
-
-### Monte Carlo Simulations
-
-![Monte Carlo](monte_carlo.png)
+| Metric                  | Result       |
+|--------------------------|--------------|
+| **Total Trades**         | 210          |
+| **Win Rate**             | 50.9%        |
+| **Profit Factor**        | 1.47         |
+| **Sharpe Ratio**         | 0.66         |
+| **Max Drawdown**         | -32.6%       |
+| **Expectancy / Trade**   | $392.79      |
+| **Best Trade [%]**       | +0.82%       |
+| **Worst Trade [%]**      | -1.18%       |
 
 ---
 
-## 🔍 Key Insights
+## 🔎 Key Takeaways
 
-* **Diversification Benefit:** Low correlation across strategies reduces risk.
-* **Robustness:** Monte Carlo confirms actual equity curve lies within the 5–95% percentile band.
-* **Stability:** Max drawdown of only -2.54% makes it capital efficient.
-* **Best Performer:** Strategy 3 had the strongest standalone performance (Sharpe 1.04, Sortino 4.99).
-
----
-
-## ⚡ Next Steps
-
-* Extend framework to multi-currency FX portfolio.
-* Add volatility-scaling / Kelly position sizing.
-* Expand strategy library to include trend-following and mean-reversion models.
+- ✅ **Systematic Approach:** Converts bearish zone price-action logic into algorithmic rules.  
+- ✅ **Risk Management:** Fixed-dollar risk per trade with dynamic position sizing.  
+- ✅ **Consistent Edge:** Positive expectancy and profit factor > 1.  
+- ✅ **Benchmark Outperformance:** +82.5% return vs -16.5% passive benchmark.  
+- ✅ **Realistic Simulation:** Includes transaction costs, SL/TP logic, and non-overlapping trades.  
 
 ---
 
-## 📂 Repo Structure
+## 🛠 Technology & Tools
 
-```
-MultiStrategy_Backtester/
-│── README.md            # Research report (this file)
-│── backtester.py        # Framework (risk mgmt, performance analytics)
-│── strategy_example.py  # Dummy strategy (moving average crossover for demo)
-│── figures/
-│    ├── equity_&_drawdown.png
-│    ├── monte_carlo.png
-│    └── correlation_heatmap.png
-```
+- **Python Libraries:** `pandas`, `numpy`, `matplotlib`  
+- **Data Source:** Dukascopy (`dukascopy-python`)  
+- **Backtesting Engine:** [VectorBT](https://github.com/polakowo/vectorbt)  
+- **Visualization:** [mplfinance](https://github.com/matplotlib/mplfinance)  
 
 ---
 
-## 📌 Note
+## 📷 Strategy Visualization
 
-This repo contains the **framework and sample strategies** only.
-The proprietary logic of the real strategies has been excluded for confidentiality, but the backtester architecture and analytics remain identical.
+- Candlestick charts with **highlighted bearish zones**  
+- **Entry & Exit markers** clearly plotted  
+- **Stop Loss (red)** and **Take Profit (blue)** levels overlayed  
+
+*(Insert chart image here to make it visually compelling)*  
+
+---
+
+## 📌 Why This Project Matters
+
+This backtest illustrates my ability to:  
+- Translate **discretionary trading concepts into quant strategies**  
+- Apply **risk management and position sizing** effectively  
+- Conduct **multi-year backtests with robust metrics**  
+- Build **clear visualizations** to communicate strategy logic  
+
+---
+
+## 👤 Author
+
+**Chinmoy S. Patir**  
+📌 Aspiring **Quant Trader | Python Algo Developer**  
+💼 Focus Areas: Systematic strategies · Backtesting · Risk management · FX & Options Trading  
+
+---
