@@ -52,11 +52,11 @@ It combines three independent price-action strategies with dynamic risk manageme
 
 ### Equity Curve & Drawdowns
 
-![Equity Curve](figures/equity_&_drawdown.png)
+![Equity Curve](equity_&_drawdown.png)
 
 ### Monte Carlo Simulations
 
-![Monte Carlo](figures/monte_carlo.png)
+![Monte Carlo](monte_carlo.png)
 
 ---
 
