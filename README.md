@@ -3,7 +3,7 @@
 A systematic backtest of a **bearish candlestick zone pattern** on the **4H timeframe** (USD/CHF, 2020–2025).  
 This project demonstrates how discretionary price-action ideas can be **translated into a quantifiable strategy**, complete with **risk management, position sizing, and statistical evaluation**.
 
----
+----
 
 ## 🔹 Executive Summary
 
@@ -16,7 +16,7 @@ This project demonstrates how discretionary price-action ideas can be **translat
 - **Total Return:** **+82.5%**  
 - **Benchmark Return:** -16.5%  
 
----
+----
 
 ## 📈 Performance Highlights
 
